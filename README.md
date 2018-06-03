@@ -4,7 +4,28 @@ This project aims to make it really easy to make Go based projects comply with
 Open Source Licensing requirements.
 
 It reads a `.attribute.yaml` file and the local`Gopkg.toml` file then builds out
-a license file, notice and 
+a license file, notice and attribution file.
+
+## Usage
+In the root of a Golang project, pull down your dependencies first,
+allowing dep to populate the vendor folder with our much wanted license files...
+
+```sh
+dep ensure -v
+```
+
+Run attribute in the root of your go project to attribute all the amazing 
+people that have helped build your project!
+
+```sh
+attribute
+INFO[0000] Generating attributions...                   
+INFO[0000] Generated LICENSE file!                      
+INFO[0000] Generated NOTICE file!                       
+INFO[0000] Generated ATTRIBUTIONS.md file!              
+INFO[0000] Attribution generation complete!   
+```
+
 
 ## .attribute.yaml file
 
