@@ -8,10 +8,22 @@
   version = "v2.2.1"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/pelletier/go-toml"
+  packages = ["."]
+  revision = "66540cf1fcd2c3aee6f6787dfa32a6ae9a870f12"
+
+[[projects]]
   name = "github.com/sirupsen/logrus"
   packages = ["."]
   revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
   version = "v1.0.5"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/texttheater/golang-levenshtein"
+  packages = ["levenshtein"]
+  revision = "d188e65d659ef53fcdb0691c12f1bba64928b649"
 
 [[projects]]
   branch = "master"
@@ -31,6 +43,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "bba27e34a8f119fd0f292f8f940f7e4ad1df86bcbeab9a1e8b5a754821d019c2"
+  inputs-digest = "2deb73edf573e7813398c4f4b9f4b025bbc3d7b63799cab7d3059e0d27ccbbaf"
   solver-name = "gps-cdcl"
   solver-version = 1

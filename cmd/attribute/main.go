@@ -2,6 +2,7 @@ package main
 
 import (
 	// Standard Library Imports
+	"flag"
 	"io/ioutil"
 
 	// External Imports
@@ -32,10 +33,21 @@ func WriteToDisk(filename string, contents []byte) {
 }
 
 func main() {
+	debug := flag.Bool("debug", false, "enable debug logging")
+	flag.Parse()
+
+	if *debug {
+		logrus.SetLevel(logrus.DebugLevel)
+	}
 	config := getConfig()
 
-	license := attribute.GenerateLicense(config)
-	WriteToDisk("LICENSE", license)
+	if license := attribute.GenerateLicense(config); license != nil {
+		WriteToDisk("LICENSE", license)
+	}
+
+	if notice := attribute.GenerateNotice(config); notice != nil {
+		WriteToDisk("NOTICE", notice)
+	}
 
 	attributions := attribute.GenerateAttributions(config)
 	WriteToDisk("ATTRIBUTIONS.md", attributions)

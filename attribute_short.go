@@ -10,5 +10,5 @@ to open source.
 {{range .Attributions}}
 {{if .Link}}### [{{.Name}}]({{.Link}}){{else}}### {{.Name}}{{end}}
 {{if .Copyright}}- {{.Copyright}}{{- else -}}{{- end}}
-{{if .LicenseType}}{{if .LicenseLink}}- [{{.LicenseType}}]({{.LicenseLink}}){{else}}- {{.LicenseType}}{{end}}{{end}}
+{{if .LicenseName}}{{if .LicenseLink}}- [{{.LicenseName}}]({{.LicenseLink}}){{else}}- {{.LicenseName}}{{end}}{{end}}
 {{end}}`

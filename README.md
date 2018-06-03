@@ -3,13 +3,13 @@
 This project aims to make it really easy to make Go based projects comply with 
 Open Source Licensing requirements.
 
-Currently, it is a little naive as I've written this quick template-driven 
-prototype in an hour.
+It reads a `.attribute.yaml` file and the local`Gopkg.toml` file then builds out
+a license file, notice and 
 
 ## .attribute.yaml file
 
-The attribute file requires 2 objects, your project, and a list of attributions 
-to be made. 
+The attribute file requires 1 object, your project, and optionally a list of 
+manual attributions to be made.
 
 ### project model
 
@@ -38,14 +38,10 @@ project:
 
 ## attributions model
 
-Currently, attributions holds the model to generate `ATTRIBUTIONS.md` file. 
-
-In time, the aim is to remove this requirement, unless wanting to override the 
- generated information for a specific project. 
+If you require, or want to make notice of any other projects that committed to
+ your project, but aren't vendored - the attributions model is for you.
  
-First thought in order to generate this information will be gleaned from 
-reading the `Gopkg.toml` file then seek information out by looking for `LICENSE`
-files in the relevant project's vendor folder.
+Otherwise, attributions are generated from the dep package management file, `Gopkg.toml`
  
 ```yaml
 attributions:
@@ -61,22 +57,22 @@ attributions:
   # LicenseLink contains a direct link to the license within the dependencies
   # repository.
   licenseLink: string
-  # LicenseType is the string form of the license that the project uses.
-  licenseType: string
+  # LicenseName contains the string form of the license that the project uses.
+  LicenseName: string
 
 ```
 
 ## Example
 
-The `ATTRIBUTIONS.md` and `LICENSE` file in this project have been generated 
-from this repositories `.attributions.yaml` file. :ok_hand:
+The `ATTRIBUTIONS.md`, `NOTICE` and `LICENSE` file in this project have been 
+generated from this repositories `.attributions.yaml` and `Gopkg.toml` file. :ok_hand:
 
 But hey, here's a copy of the files anyway:
 ```yaml
 project:
   year: 2018
   owner: Matthew Hartstonge
-  custom: <matt@mykro.co.nz> https://github.com/matthewhartstonge
+  custom: <matt@mykro.co.nz>
 
   licenseType: apache2
   attributionType: short
@@ -86,19 +82,7 @@ attributions:
     link: https://github.com/golang/go
     copyright: Copyright (c) 2009 The Go Authors. All rights reserved.
     licenseLink: https://github.com/golang/go/blob/master/LICENSE
-    licenseType: BSD 3-clause "New" or "Revised" License
-
-  - name: logrus
-    link: https://github.com/sirupsen/logrus
-    copyright: Copyright (c) 2014 Simon Eskildsen
-    licenseLink: https://github.com/sirupsen/logrus/blob/master/LICENSE
-    licenseType: MIT License
-
-  - name: yaml
-    link: https://github.com/go-yaml/yaml
-    copyright: Copyright 2011-2016 Canonical Ltd.
-    licenseLink: https://github.com/go-yaml/yaml/blob/v2/LICENSE
-    licenseType: Apache License 2.0
+    licenseName: BSD 3-clause "New" or "Revised" License
 
 ```
 
@@ -117,20 +101,48 @@ to open source.
 - Copyright (c) 2009 The Go Authors. All rights reserved.
 - [BSD 3-clause "New" or "Revised" License](https://github.com/golang/go/blob/master/LICENSE)
 
-### [logrus](https://github.com/sirupsen/logrus)
-- Copyright (c) 2014 Simon Eskildsen
-- [MIT License](https://github.com/sirupsen/logrus/blob/master/LICENSE)
-
 ### [yaml](https://github.com/go-yaml/yaml)
 - Copyright 2011-2016 Canonical Ltd.
-- [Apache License 2.0](https://github.com/go-yaml/yaml/blob/v2/LICENSE)
+- [Apache License 2.0](https://github.com/go-yaml/yaml/blob/v2.2.1/NOTICE)
+
+### [go-toml](https://github.com/pelletier/go-toml)
+- Copyright (c) 2013 - 2017 Thomas Pelletier, Eric Anderton
+- [MIT License](https://github.com/pelletier/go-toml/blob/master/LICENSE)
+
+### [logrus](https://github.com/sirupsen/logrus)
+- Copyright (c) 2014 Simon Eskildsen
+- [MIT License](https://github.com/sirupsen/logrus/blob/v1.0.5/LICENSE)
+
+### [golang-levenshtein](https://github.com/texttheater/golang-levenshtein)
+- Copyright (c) 2013 Kilian Evang and contributors
+- [MIT License](https://github.com/texttheater/golang-levenshtein/blob/master/LICENSE)
 
 ```
 
-and... 
+plus... 
+
+`NOTICE`
+```text
+Copyright 2018 Matthew Hartstonge <matt@mykro.co.nz>
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+```
+
+and last but not least...
 
 `LICENSE`
-```
+```text
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

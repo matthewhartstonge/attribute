@@ -7,8 +7,9 @@ type Project struct {
 	Year string
 	// Owner specifies the owner of the project
 	Owner string
-	// Custom specifies anything extra you want added to your copyright notice,
-	// for example, your email address.
+	// Custom specifies an email address to contact the project owner on, or
+	// anything extra you want added to your copyright notice as it's appended
+	// to the copyright string.
 	Custom string
 
 	// LicenseType is the type of license you want to use for the project.
@@ -33,8 +34,10 @@ type Dependency struct {
 	// LicenseLink contains a direct link to the license within the dependencies
 	// repository.
 	LicenseLink string `yaml:"licenseLink"`
-	// LicenseType is the string form of the license that the project uses.
-	LicenseType string `yaml:"licenseType"`
+	// LicenseName contains the string form of the license that the project uses.
+	LicenseName string `yaml:"licenseName"`
+	// licenseFile is used internally to generate links based on file name.
+	licenseFile string
 }
 
 // Config contains the data structure to unmarshal the .attribute.yaml file.

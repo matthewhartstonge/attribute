@@ -1,7 +1,7 @@
 project:
   year: 2018
   owner: Matthew Hartstonge
-  custom: https://github.com/matthewhartstonge <matt@mykro.co.nz>
+  custom: <matt@mykro.co.nz>
 
   licenseType: apache2
   attributionType: short
@@ -11,16 +11,4 @@ attributions:
     link: https://github.com/golang/go
     copyright: Copyright (c) 2009 The Go Authors. All rights reserved.
     licenseLink: https://github.com/golang/go/blob/master/LICENSE
-    licenseType: BSD 3-clause "New" or "Revised" License
-
-  - name: logrus
-    link: https://github.com/sirupsen/logrus
-    copyright: Copyright (c) 2014 Simon Eskildsen
-    licenseLink: https://github.com/sirupsen/logrus/blob/master/LICENSE
-    licenseType: MIT License
-
-  - name: yaml
-    link: https://github.com/go-yaml/yaml
-    copyright: Copyright 2011-2016 Canonical Ltd.
-    licenseLink: https://github.com/go-yaml/yaml/blob/v2/LICENSE
-    licenseType: Apache License 2.0
+    licenseName: BSD 3-clause "New" or "Revised" License

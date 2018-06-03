@@ -16,11 +16,11 @@ func GenerateFromTemplate(templateName, templateContents string, config *Config)
 		logrus.WithError(err).Fatal(fmt.Sprintf("Unable to load template for %s successfully", templateName))
 	}
 
-	var generatedLicense bytes.Buffer
-	err = tmpl.Execute(&generatedLicense, config)
+	var parsedTemplate bytes.Buffer
+	err = tmpl.Execute(&parsedTemplate, config)
 	if err != nil {
 		logrus.WithError(err).Fatal(fmt.Sprintf("Unable to generate %s successfully", templateName))
 	}
 
-	return generatedLicense.Bytes()
+	return parsedTemplate.Bytes()
 }
