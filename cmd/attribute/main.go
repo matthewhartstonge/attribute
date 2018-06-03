@@ -39,16 +39,23 @@ func main() {
 	if *debug {
 		logrus.SetLevel(logrus.DebugLevel)
 	}
-	config := getConfig()
 
+	logrus.Info("Generating attributions...")
+
+	config := getConfig()
 	if license := attribute.GenerateLicense(config); license != nil {
 		WriteToDisk("LICENSE", license)
+		logrus.Info("Generated LICENSE file!")
 	}
 
 	if notice := attribute.GenerateNotice(config); notice != nil {
 		WriteToDisk("NOTICE", notice)
+		logrus.Info("Generated NOTICE file!")
 	}
 
 	attributions := attribute.GenerateAttributions(config)
 	WriteToDisk("ATTRIBUTIONS.md", attributions)
+	logrus.Info("Generated ATTRIBUTIONS.md file!")
+
+	logrus.Info("Attribution generation complete!")
 }
