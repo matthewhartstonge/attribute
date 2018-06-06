@@ -25,6 +25,11 @@ var licenses = map[licenseType]license{
 		Notice: licenseTemplateApache2Notice,
 		Full:   licenseTemplateApache2Full,
 	},
+	licenseTypeBSD2Clause: {
+		Type: licenseTypeBSD2Clause,
+		Name: licensePrettyNameBSD2Clause,
+		Full: licenseTemplateBSD2ClauseFull,
+	},
 	licenseTypeBSD3Clause: {
 		Type: licenseTypeBSD3Clause,
 		Name: licensePrettyNameBSD3Clause,
