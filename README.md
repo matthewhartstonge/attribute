@@ -50,7 +50,7 @@ project:
   custom: string
   
   # licenseType is the type of license you want to use for the project.
-  licenseType: one of {'apache2'}
+  licenseType: one of {'apache2', 'bsd2clause', 'bsd3clause', 'mit'}
   	
   # attributionType specifies the type of Open Source Attribution you
   # want to generate.
